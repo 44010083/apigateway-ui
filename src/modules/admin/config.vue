@@ -1,105 +1,14 @@
 <template>
-  <el-container>
+
     <div
       class="headerdiv"
-      v-if="err.length > 0"
+    
     >
       <div>出错了：</div>
-      <div
-        v-for="thisErr of err"
-        :key="thisErr"
-      >{{thisErr}}</div>
+      
     </div>
-    <el-tabs type="border-card">
-      <el-tab-pane>
-        <span slot="label"><i class="el-icon-setting"></i> 微服务治理组件</span>
-        <div class="panediv">
-          <el-row
-            :gutter="12"
-            v-loading="loading"
-          >
-            <el-col
-              :span="8"
-              v-for="app in adminApps"
-              :key="app.name"
-            >
 
-              <el-card
-                class="box-card"
-                v-if="app && app.name"
-              >
-                <div
-                  slot="header"
-                  class="clearfix"
-                >
-                  <span v-if="app.name.toLowerCase() == 'discovery'">注册中心</span>
-                  <span v-else-if="app.name.toLowerCase() == 'zuul'">微服务网关</span>
-                  <el-button
-                    style="float: right; padding: 3px 0"
-                    type="text"
-                  >操作</el-button>
-                </div>
-                <div class="bottom clearfix">
-                  <div v-if="app.instance">
-                    <span>节点数：{{app.instance.length}}</span>
-                  </div>
-                </div>
-              </el-card>
-              <div class="bottom"></div>
-            </el-col>
-          </el-row>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label"><i class="el-icon-location"></i>微服务业务组件</span>
-        <div class="panediv">
-          <el-row
-            :gutter="12"
-            v-loading="loading"
-          >
-            <el-col
-              :span="8"
-              v-for="app in pageApps"
-              :key="app.name"
-            >
-
-              <el-card
-                class="box-card"
-                v-if="app && app.name"
-              >
-                <div
-                  slot="header"
-                  class="clearfix"
-                >
-                  <span>{{app.name}}</span>
-                  <el-button
-                    style="float: right; padding: 3px 0"
-                    type="text"
-                  >操作</el-button>
-                </div>
-                <div class="bottom clearfix">
-                  <div v-if="app.instance">
-                    <span>节点数：{{app.instance.length}}</span>
-                  </div>
-                </div>
-              </el-card>
-              <div class="bottom"></div>
-            </el-col>
-          </el-row>
-          <el-pagination
-            @current-change="handleCurrentChange"
-            :current-page="queryOptions.pageNo"
-            page-size="9"
-            small
-            layout="total, pager,prev, next"
-            :total="apps.length"
-            v-if="apps.length > 9"
-          >
-          </el-pagination>
-        </div>
-      </el-tab-pane>
-    </el-tabs>
-  </el-container>
+ 
 </template>
 
 <script>
@@ -130,7 +39,7 @@ export default {
     };
   },
   mounted() {
-    this.getInfo();
+    //this.getInfo();
   },
   methods: {
     handleClick(tab, event) {
