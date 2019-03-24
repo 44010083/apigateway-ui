@@ -8,7 +8,7 @@ Vue.use(Router)
 Vue.use(Resource)
 const router = new Router({
   mode: 'history',
-  base: '#',
+  //base: '#',
   routes: [
     {
       path: '/',
